@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+
+h1,h2,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+
+}
+h3{
+  font-family: "Playfair Display";
+    letter-spacing: 5px;
+    font-weight: bold
+}
+</style>
+<body onload='document.form1.A1.focus()'>
+  <!-- Contact Section -->
+<div class = "w3-image" >
+  <h1>Epileptic Seizure Detection</h1><br>
+  <div class="w3-row" id="contact">
+  <div class="w3-half w3-teal">
+  <div class="w3-padding-64-1">
+
+    <form name = "form1" onsubmit="return CheckInputs()" action ="{{ url_for('form_submit') }}" method = "post" >
+        <input type="text" class = "w3-input w3-padding-16" placeholder="X95" name="X95" value="{{request.form.X95}}" required><br>
+        <input type="text" class = "w3-input w3-padding-16" placeholder="X101" name="X101" value="{{request.form.X101}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X106" name="X106" value="{{request.form.X106}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X111" name="X111" value="{{request.form.X111}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X116" name="X116" value="{{request.form.X116}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X121" name="X121" value="{{request.form.X121}}" required><br>
+        <input type="text" class = "w3-input w3-padding-16" placeholder="X127" name="X127" value="{{request.form.X127}}" required><br>
+        <input type="text" class = "w3-input w3-padding-16" placeholder="X144" name="X144" value="{{request.form.X144}}" required><br>
+            <input type="text" class = "w3-input w3-padding-16" placeholder="X153" name="X153" value="{{request.form.X153}}" required><br>
+            <input type="text" class = "w3-input w3-padding-16" placeholder="X156" name="X156" value="{{request.form.X156}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X160" name="X160" value="{{request.form.X160}}" required><br>
+              </div>
+              </div>
+  <div class="w3-half w3-teal w3-center" style="height:936.28px">
+  <div class="w3-padding-64">
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X161" name="X161" value="{{request.form.X161}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X169" name="X169" value="{{request.form.X169}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X171" name="X171" value="{{request.form.X171}}" required><br>
+                <input type="text" class = "w3-input w3-padding-16" placeholder="X177" name="X177" value="{{request.form.X177}}" required><br>
+
+                <input class="w3-button w3-light-grey w3-section w3-left" type="submit" value="Submit">
+              <!-- </div>
+            </div> -->
+      </form>
+  <!-- </div> -->
+  <!-- <div class="w3-half w3-dark-grey w3-container w3-center" style="height:936.28px">
+  <div class="w3-padding-64"> -->
+  {% if result %}
+    <br/>
+    <br/>
+    <br/>
+    <h4>{{get_flashed_messages()[0]}}</h4>
+    <h3>{{ result }}</h3>
+      {% endif %}
+      <br>
+      {% if result1 %}
+    <h4>{{get_flashed_messages()[1]}}</h4>
+    <h3>{{ result1 }}</h3>
+      {% endif %}
+      <br>
+      {% if result1 %}
+    <h4>{{get_flashed_messages()[2]}}</h4>
+    <h3>{{ result2 }}</h3>
+      {% endif %}
+  </div>
+  </div>
+  </div>
+</div>  
+        <script src="{{url_for('static', filename='check-decimal.js')}}"></script>
+  </body>
+
+
+</body>
+</html>
+
